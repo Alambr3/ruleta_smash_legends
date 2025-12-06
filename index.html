@@ -1,0 +1,88 @@
+      <!DOCTYPE html>
+      <html lang="es">
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ruleta de Personajes - Smash Legends</title>
+        <link rel="stylesheet" href="./css/style.css">
+      </head>
+
+      <body>
+        <div class="partsup">
+          <p class="titulo">Ruleta de Leyendas de Smash Legends</p>
+          <div class="botones-superiores">
+            <button id="verEstadisticasBtn">Ver Estadísticas</button>
+          </div>
+        </div>
+
+        <!-- PANEL ESTADÍSTICAS (incluye el menú de descargar/cargar/limpiar dentro) -->
+        <div id="panelEstadisticas" class="panel-estadisticas" aria-hidden="true">
+          <button id="cerrarPanel" class="cerrar-panel">X</button>
+          <h2 class="titulo-panel">ESTADÍSTICAS</h2>
+
+
+      <button id="menuEstadisticasBtn" class="menu-est-btn">☰</button>
+
+      <div class="menu-panel" id="menuPanel" aria-hidden="true">
+        <button id="descargarBtn">Descargar</button>
+        <label class="boton-cargar" for="cargarArchivo">Cargar</label>
+        <input type="file" id="cargarArchivo" accept="application/json" style="display:none">
+        <button id="limpiarBtn">Limpiar</button>
+      </div>
+
+          <!-- filtro personalizado por personaje -->
+          <div class="filtro-wrap">
+            <div id="customSelect" class="custom-select">
+              <button id="customSelectBtn" class="custom-select-btn">Todos ▾</button>
+              <div id="customSelectList" class="custom-select-list" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div id="contenidoEstadisticas"></div>
+        </div>
+
+        <!-- RULETA Y SLOTS -->
+        <div id="seccionRuleta">
+          <div class="ruleta-central-wrapper">
+
+            <div id="slotIzq" class="lado-personaje"></div>
+
+            <div class="ruleta-wrap">
+              <div class="puntero abajo"></div>
+              <div class="ruleta-canvas-wrap">
+                <canvas id="ruleta" width="480" height="480" aria-hidden="false"></canvas>
+                <!-- botón con imagen centrado sobre la ruleta -->
+                <button id="girarBtn" class="girar-btn">
+                  <img src="./img/girar.png" alt="Girar">
+                </button>
+              </div>
+            </div>
+            <div id="slotDer" class="lado-personaje"></div>
+          </div>
+        </div>
+
+        <!-- PANTALLA DE BATALLA (RESULTADO) -->
+        <div class="batalla" id="overlayBatalla" style="display:none;">
+          <h2 id="textoBatalla">¡Hora de la batalla!</h2>
+
+          <div id="personajesBatalla" class="personajes-container"></div>
+
+          <div id="resultadoBox" class="resultado-box">
+            <h3>Resultado: </h3>
+            <div class="resultado-botones">
+              <button id="victoriaBtn" class="victoriaBtn">Victoria</button>
+              <button id="derrotaBtn" class="derrotaBtn">Derrota</button>
+            </div>
+          </div>
+        </div>
+
+        <audio id="audio">
+          <source src="https://www.soundjay.com/button/sounds/button-10.mp3" type="audio/mp3">
+        </audio>
+
+        <script src="./js/historial.js"></script>
+        <script src="./js/script.js"></script>
+      </body>
+
+      </html> 
